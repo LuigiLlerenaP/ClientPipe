@@ -1,0 +1,22 @@
+## Build results
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+## Visual Studio / Rider / VS Code
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+*.sln.docstates
+
+## NuGet Packages
+*.nupkg
+*.snupkg
+nupkgs/
+project.lock.json
+project.assets.json
