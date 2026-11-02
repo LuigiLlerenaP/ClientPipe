@@ -51,11 +51,19 @@ jobs:
         run: ls -lah ./nupkgs
 
       - name: NuGet login (OIDC)
+        id: nuget_login
         uses: NuGet/login@v1
+        with:
+          user: LlerenaL
+
+      - name: Verify NuGet sources (diagnostic)
+        shell: bash
+        run: dotnet nuget list source
 
       - name: Push to NuGet.org
         shell: bash
         run: |
           dotnet nuget push "./nupkgs/*.nupkg" \
             --source "https://api.nuget.org/v3/index.json" \
+            --api-key "${{ steps.nuget_login.outputs.NUGET_API_KEY }}" \
             --skip-duplicate
